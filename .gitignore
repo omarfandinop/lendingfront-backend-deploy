@@ -1,0 +1,16 @@
+# Virtual environments
+.venv/
+
+# Sensitive configuration files
+.env
+
+# Log files
+*.log
+
+# Cache files
+__pycache__/
+
+# Generated files and directories
+dist/
+build/
+*.egg-info/

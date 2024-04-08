@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, current_app
 from ..controllers.user_controller import UserController
 from ..helpers.api_responser import ApiResponser
 
@@ -7,7 +7,10 @@ api = Blueprint("api", __name__)
 
 @api.route("/", methods=["GET"])
 def welcome():
-    return ApiResponser.successReponse({"welcome": "Welcome to Loan API"})
+    reference_value = current_app.config.get("REFERENCE_VALUE")
+    return ApiResponser.successReponse(
+        {"welcome": f"Welcome to Loan API {reference_value}"}
+    )
 
 
 @api.route("/loan", methods=["POST"])
